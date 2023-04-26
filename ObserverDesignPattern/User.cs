@@ -12,9 +12,11 @@ namespace ObserverDesignPattern
     // from the subject
     public class User : IObserver
     {
-        private MailingList _mailingList;
+        // we have the observable as property in order to observe it
+        // in case we need the updated object, but here we do not
+        // register the observer to the observable
+        private MailingList _mailingList; 
 
- 
         public string Name { get; set; }
 
         public User(string name, MailingList mailingList)

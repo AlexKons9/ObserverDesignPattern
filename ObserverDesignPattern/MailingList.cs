@@ -3,7 +3,7 @@ using System.Xml.Linq;
 
 namespace ObserverDesignPattern
 {
-    // The ConcreteSubject class extends the Subject class and defines its own state
+    // The ConcreteSubject class extends the IObservable class and defines its own state
     public class MailingList : IObservable
     {
         private List<string> _emails;
@@ -20,17 +20,19 @@ namespace ObserverDesignPattern
         }
 
 
-        // Adds new email to the list and notify the list of all observers
+   
         public void AddEmail(string email)
         {
             _emails.Add(email);
             Notify(); // Notify all the observers when a new email is added
         }
 
+
         public List<string> GetEmails()
         {
             return _emails;
         }
+
 
         public void Add(IObserver observer)
         {
